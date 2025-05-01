@@ -1,0 +1,12 @@
+*** Feature - 1 (feature-1)
+
+    - create an api that fetches the language info for news articles from external api(from RapidAPI)
+
+    task-1
+        - required dependencies added
+            web
+            lombok
+            actuator
+        - 'dev' profile added
+        - rest template configured
+        - logic to fetch language info implemented

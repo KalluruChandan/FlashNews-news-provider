@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: news-provider
+
+server:
+  port: ${PORT_NO:8080}
+  servlet:
+    context-path: /flash-news/news-provider
+
+rapid-api:
+  hostname: ${RAPIDAPI_HOST_NAME}
+  apikey: ${RAPIDAPI_API_KEY}
+  url:
+    info:
+      language: ${RAPIDAPI_LANGUAGE_INFO_URL:https://news67.p.rapidapi.com/languages}
