@@ -1,5 +1,6 @@
 *** Feature - 1 (feature-1)
 
+    Story
     - create an api that fetches the language info for news articles from external api(from RapidAPI)
 
     task-1
@@ -10,3 +11,8 @@
         - 'dev' profile added
         - rest template configured
         - logic to fetch language info implemented
+
+    task-2
+        -implemented a working api for story
+            exceptions handled
+            resttemplate config updated to accept any response as string

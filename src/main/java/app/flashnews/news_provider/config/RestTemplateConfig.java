@@ -9,6 +9,8 @@ public class RestTemplateConfig {
 
     @Bean
     public RestTemplate getRestTemplate(){
-        return new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setErrorHandler(new NoOpResponseErrorHandler());
+        return restTemplate;
     }
 }

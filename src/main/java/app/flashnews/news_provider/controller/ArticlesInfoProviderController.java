@@ -1,7 +1,9 @@
 package app.flashnews.news_provider.controller;
 
 import app.flashnews.news_provider.model.response.APIResponse;
+import app.flashnews.news_provider.model.response.RapidAPILangInfoResponse;
 import app.flashnews.news_provider.service.ArticlesInfoProviderService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,7 @@ public class ArticlesInfoProviderController {
     private final ArticlesInfoProviderService articlesInfoProviderService;
 
     @GetMapping("/language")
-    public ResponseEntity<APIResponse<String>> getLanguageInfo(){
+    public ResponseEntity<APIResponse<RapidAPILangInfoResponse>> getLanguageInfo() throws JsonProcessingException {
         return ResponseEntity.ok(articlesInfoProviderService.getLanguageInfo());
     }
 
