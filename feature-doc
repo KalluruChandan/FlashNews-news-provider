@@ -1,4 +1,4 @@
-*** Feature - 1 (feature-1)
+*** Feature - 1 (feature-1) (in qa)
 
     Story
     - create an api that fetches the language info for news articles from external api(from RapidAPI)
@@ -16,3 +16,13 @@
         -implemented a working api for story
             exceptions handled
             resttemplate config updated to accept any response as string
+
+
+
+*** Feature - 2 (feature-2)
+
+    Story
+    develop apis for
+        - categories info
+        - countries info
+
