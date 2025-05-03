@@ -13,3 +13,5 @@ rapid-api:
   url:
     info:
       language: ${RAPIDAPI_LANGUAGE_INFO_URL:https://news67.p.rapidapi.com/languages}
+      categories: ${RAPIDAPI_CATEGORIES_INFO_URL:https://news67.p.rapidapi.com/v2/categories-info}
+      countries: ${RAPIDAPI_COUNTRIES_INFO_URL:https://news67.p.rapidapi.com/countries}
