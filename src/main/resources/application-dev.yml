@@ -12,6 +12,12 @@ rapid-api:
   apikey: ${RAPIDAPI_API_KEY}
   url:
     info:
-      language: ${RAPIDAPI_LANGUAGE_INFO_URL:https://news67.p.rapidapi.com/languages}
-      categories: ${RAPIDAPI_CATEGORIES_INFO_URL:https://news67.p.rapidapi.com/v2/categories-info}
-      countries: ${RAPIDAPI_COUNTRIES_INFO_URL:https://news67.p.rapidapi.com/countries}
+      languageURL: ${RAPIDAPI_LANGUAGE_INFO_URL:https://news67.p.rapidapi.com/languages}
+      categoriesURL: ${RAPIDAPI_CATEGORIES_INFO_URL:https://news67.p.rapidapi.com/v2/categories-info}
+      countriesURL: ${RAPIDAPI_COUNTRIES_INFO_URL:https://news67.p.rapidapi.com/countries}
+    content:
+      newsFeedURL: ${RAPIDAPI_NEWS_FEED_CONTENT_URL:https://news67.p.rapidapi.com/v2/feed}
+      worldTrendingURL: ${RAPIDAPI_WORLD_TRENDING_CONTENT_URL:https://news67.p.rapidapi.com/v2/trending}
+      topicSearchURL: ${RAPIDAPI_TOPIC_SEARCH_URL:https://news67.p.rapidapi.com/v2/topic-search}
+      countryNewsURL: ${RAPIDAPI_COUNTRY_NEWS_CONTENT_URL:https://news67.p.rapidapi.com/v2/country-news}
+      cryptoNewsURL: ${RAPIDAPI_CRYPTO_NEWS_CONTENT_URL:https://news67.p.rapidapi.com/v2/crypto}

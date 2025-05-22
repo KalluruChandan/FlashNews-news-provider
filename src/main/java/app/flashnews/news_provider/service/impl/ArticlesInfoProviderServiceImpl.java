@@ -5,6 +5,7 @@ import app.flashnews.news_provider.model.response.APIResponse;
 import app.flashnews.news_provider.model.response.RapidAPICategoryInfoResponse;
 import app.flashnews.news_provider.model.response.RapidAPICountriesInfoResponse;
 import app.flashnews.news_provider.model.response.RapidAPILangInfoResponse;
+import app.flashnews.news_provider.properties.ArticlesInfoProperties;
 import app.flashnews.news_provider.service.ArticlesInfoProviderService;
 import app.flashnews.news_provider.util.RapidAPIHeadersUtil;
 import app.flashnews.news_provider.util.RestTemplateUtil;
@@ -29,15 +30,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
     private final RestTemplateUtil restTemplateUtil;
     private final RapidAPIHeadersUtil rapidAPIHeadersUtil;
     private final ObjectMapper objectMapper;
-
-    @Value("${rapid-api.url.info.language}")
-    private String getLanguageInfoURL;
-
-    @Value("${rapid-api.url.info.categories}")
-    private String getCategoriesInfoURL;
-
-    @Value("${rapid-api.url.info.countries}")
-    private String getCountriesInfoURL;
+    private final ArticlesInfoProperties articlesInfoProperties;
 
     @Override
     public APIResponse<RapidAPILangInfoResponse> getLanguageInfo() throws JsonProcessingException {
@@ -47,7 +40,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
 
         // make call to the third party api
         ResponseEntity<String> responseEntity = restTemplateUtil
-                .makeRestCall(getLanguageInfoURL, null, headersMap, HttpMethod.GET);
+                .makeRestCall(articlesInfoProperties.getLanguageURL(), null, headersMap, HttpMethod.GET);
         String response = responseEntity.getBody();
 
         if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
@@ -58,7 +51,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
             return APIResponse.success("fetch success", "Found articles", rapidAPILangInfoResponse);
         }
         else {
-            throw new CustomException(response, "Unable to fetch", HttpStatus.FORBIDDEN);
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
         }
     }
 
@@ -69,7 +62,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
 
         // make call to the third party api
         ResponseEntity<String> responseEntity = restTemplateUtil
-                .makeRestCall(getCategoriesInfoURL, null, headersMap, HttpMethod.GET);
+                .makeRestCall(articlesInfoProperties.getCategoriesURL(), null, headersMap, HttpMethod.GET);
         String response = responseEntity.getBody();
 
         if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
@@ -80,7 +73,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
             return APIResponse.success("fetch success", "Categories Found", rapidAPICategoryInfoResponse);
         }
         else {
-            throw new CustomException(response, "Unable to fetch", HttpStatus.FORBIDDEN);
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
         }
     }
 
@@ -91,7 +84,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
 
         // make call to the third party api
         ResponseEntity<String> responseEntity = restTemplateUtil
-                .makeRestCall(getCountriesInfoURL, null, headersMap, HttpMethod.GET);
+                .makeRestCall(articlesInfoProperties.getCountriesURL(), null, headersMap, HttpMethod.GET);
         String response = responseEntity.getBody();
 
         if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
@@ -102,7 +95,7 @@ public class ArticlesInfoProviderServiceImpl implements ArticlesInfoProviderServ
             return APIResponse.success("fetch success", "Countries Found", rapidAPICountriesInfoResponse);
         }
         else {
-            throw new CustomException(response, "Unable to fetch", HttpStatus.FORBIDDEN);
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
         }
     }
 }
