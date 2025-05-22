@@ -26,3 +26,12 @@
         - categories info
         - countries info
 
+*** Feature - 3 (features)branch
+
+    Story
+    - Create apis for fetching the content form the external api
+
+    task 1
+        logic for news feed api implemented
+
+
