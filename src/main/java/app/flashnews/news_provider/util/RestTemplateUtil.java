@@ -1,6 +1,7 @@
 package app.flashnews.news_provider.util;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class RestTemplateUtil {
 
     private final RestTemplate restTemplate;
@@ -19,6 +21,7 @@ public class RestTemplateUtil {
     public <T> ResponseEntity<String> makeRestCall(String uri, T requestBody, Map<String, String> headersMap, HttpMethod httpMethod) {
         HttpHeaders headers = getHeaders(headersMap);
         HttpEntity<T> entity = new HttpEntity<T>(requestBody, headers);
+        log.info("RestTemplateUtil.makeRestCall, Requested an external API call with [URL={}]",uri);
         return restTemplate.exchange(uri, httpMethod, entity, String.class);
     }
 

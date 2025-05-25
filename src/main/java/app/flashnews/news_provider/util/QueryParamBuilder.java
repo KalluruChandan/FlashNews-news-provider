@@ -22,8 +22,8 @@ public class QueryParamBuilder {
             try {
                 Object value = field.get(obj);
                 if (value != null) {
-                    String encodedName = URLEncoder.encode(field.getName(), StandardCharsets.UTF_8);
-                    String encodedValue = URLEncoder.encode(value.toString(), StandardCharsets.UTF_8);
+                    String encodedName = field.getName();
+                    String encodedValue = value.toString();
                     queryParams.add(encodedName + "=" + encodedValue);
                 }
             } catch (IllegalAccessException e) {

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,4 +17,13 @@ public class NewsFeedRequest {
     private String sources;
     private String sentiment;
     private Integer skip;
+
+    public void setLanguages(List<String> languages){
+        if(languages != null && languages.isEmpty()){
+            this.languages = null;
+        }
+        else {
+            this.languages = String.join(",",languages);
+        }
+    }
 }

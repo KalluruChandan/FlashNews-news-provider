@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -35,6 +36,16 @@ public class APIResponse<T> {
                 responseMessage,
                 displayMessage,
                 null
+        );
+    }
+
+    public static <T> APIResponse<T> failure(T errorList, String responseMessage, String displayMessage){
+        return new APIResponse<T>(
+                UUID.randomUUID().toString(),
+                APIResponseStatus.FAILURE,
+                responseMessage,
+                displayMessage,
+                errorList
         );
     }
 

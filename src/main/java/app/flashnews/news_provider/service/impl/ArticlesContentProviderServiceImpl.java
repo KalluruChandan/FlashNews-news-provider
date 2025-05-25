@@ -1,7 +1,7 @@
 package app.flashnews.news_provider.service.impl;
 
 import app.flashnews.news_provider.exception.CustomException;
-import app.flashnews.news_provider.model.request.NewsFeedRequest;
+import app.flashnews.news_provider.model.request.*;
 import app.flashnews.news_provider.model.response.APIResponse;
 import app.flashnews.news_provider.model.response.NewsApiResponse;
 import app.flashnews.news_provider.model.response.RapidAPICountriesInfoResponse;
@@ -41,6 +41,106 @@ public class ArticlesContentProviderServiceImpl implements ArticlesContentProvid
         // make call to the third party api
         ResponseEntity<String> responseEntity = restTemplateUtil
                 .makeRestCall(articlesContentURLProperties.getNewsFeedURL() + queryParams, null, headersMap, HttpMethod.GET);
+        String response = responseEntity.getBody();
+
+        if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
+                && Boolean.FALSE.equals(responseEntity.getStatusCode().is5xxServerError())){
+            NewsApiResponse rapidAPINEWSFeedContentResponse = objectMapper.readValue(
+                    response, new TypeReference<NewsApiResponse>() {}
+            );
+            return APIResponse.success("fetch success", "Articles Found", rapidAPINEWSFeedContentResponse);
+        }
+        else {
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
+        }
+    }
+
+    @Override
+    public APIResponse<NewsApiResponse> getWorldTrendingFeed(WorldTrendingFeedRequest worldTrendingFeedRequest) throws JsonProcessingException {
+        //get headers for request
+        Map<String, String> headersMap = rapidAPIHeadersUtil.getHeadersForRapidAPICall();
+
+        //build request param based on newsFeedRequest
+        String queryParams = QueryParamBuilder.buildQueryParams(worldTrendingFeedRequest);
+
+        // make call to the third party api
+        ResponseEntity<String> responseEntity = restTemplateUtil
+                .makeRestCall(articlesContentURLProperties.getWorldTrendingURL() + queryParams, null, headersMap, HttpMethod.GET);
+        String response = responseEntity.getBody();
+
+        if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
+                && Boolean.FALSE.equals(responseEntity.getStatusCode().is5xxServerError())){
+            NewsApiResponse rapidAPINEWSFeedContentResponse = objectMapper.readValue(
+                    response, new TypeReference<NewsApiResponse>() {}
+            );
+            return APIResponse.success("fetch success", "Articles Found", rapidAPINEWSFeedContentResponse);
+        }
+        else {
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
+        }
+    }
+
+    @Override
+    public APIResponse<NewsApiResponse> getCountryNewsFeed(CountryNewsRequest countryNewsRequest) throws JsonProcessingException {
+        //get headers for request
+        Map<String, String> headersMap = rapidAPIHeadersUtil.getHeadersForRapidAPICall();
+
+        //build request param based on newsFeedRequest
+        String queryParams = QueryParamBuilder.buildQueryParams(countryNewsRequest);
+
+        // make call to the third party api
+        ResponseEntity<String> responseEntity = restTemplateUtil
+                .makeRestCall(articlesContentURLProperties.getCountryNewsURL() + queryParams, null, headersMap, HttpMethod.GET);
+        String response = responseEntity.getBody();
+
+        if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
+                && Boolean.FALSE.equals(responseEntity.getStatusCode().is5xxServerError())){
+            NewsApiResponse rapidAPINEWSFeedContentResponse = objectMapper.readValue(
+                    response, new TypeReference<NewsApiResponse>() {}
+            );
+            return APIResponse.success("fetch success", "Articles Found", rapidAPINEWSFeedContentResponse);
+        }
+        else {
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
+        }
+    }
+
+    @Override
+    public APIResponse<NewsApiResponse> getTopicSearchFeed(TopicSearchFeedRequest topicSearchFeedRequest) throws JsonProcessingException {
+        //get headers for request
+        Map<String, String> headersMap = rapidAPIHeadersUtil.getHeadersForRapidAPICall();
+
+        //build request param based on newsFeedRequest
+        String queryParams = QueryParamBuilder.buildQueryParams(topicSearchFeedRequest);
+
+        // make call to the third party api
+        ResponseEntity<String> responseEntity = restTemplateUtil
+                .makeRestCall(articlesContentURLProperties.getTopicSearchURL() + queryParams, null, headersMap, HttpMethod.GET);
+        String response = responseEntity.getBody();
+
+        if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
+                && Boolean.FALSE.equals(responseEntity.getStatusCode().is5xxServerError())){
+            NewsApiResponse rapidAPINEWSFeedContentResponse = objectMapper.readValue(
+                    response, new TypeReference<NewsApiResponse>() {}
+            );
+            return APIResponse.success("fetch success", "Articles Found", rapidAPINEWSFeedContentResponse);
+        }
+        else {
+            throw new CustomException(response, "Unable to fetch", HttpStatus.valueOf(responseEntity.getStatusCode().value()));
+        }
+    }
+
+    @Override
+    public APIResponse<NewsApiResponse> getCryptoNewsFeed(CryptoNewsFeedRequest cryptoNewsFeedRequest) throws JsonProcessingException {
+        //get headers for request
+        Map<String, String> headersMap = rapidAPIHeadersUtil.getHeadersForRapidAPICall();
+
+        //build request param based on newsFeedRequest
+        String queryParams = QueryParamBuilder.buildQueryParams(cryptoNewsFeedRequest);
+
+        // make call to the third party api
+        ResponseEntity<String> responseEntity = restTemplateUtil
+                .makeRestCall(articlesContentURLProperties.getCryptoNewsURL() + queryParams, null, headersMap, HttpMethod.GET);
         String response = responseEntity.getBody();
 
         if(Boolean.FALSE.equals(responseEntity.getStatusCode().is4xxClientError())
