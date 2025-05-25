@@ -1,6 +1,7 @@
 package app.flashnews.news_provider.model.response;
 
 import app.flashnews.news_provider.enumeration.APIResponseStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
