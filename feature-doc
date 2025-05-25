@@ -44,4 +44,8 @@
         swagger documentation
 
 
+*** Feature - 4
+    Story
+        Implement customized logging patterns per profiles and implement tracing
+
 
