@@ -8,16 +8,17 @@ server:
     context-path: /flash-news/news-provider
 
 rapid-api:
-  hostname: ${RAPIDAPI_HOST_NAME}
-  apikey: ${RAPIDAPI_API_KEY}
+  hostname: ${RAPID_API_HOST_NAME}
+  apikey: ${RAPID_API_API_KEY}
   url:
     info:
-      languageURL: ${RAPIDAPI_LANGUAGE_INFO_URL:https://news67.p.rapidapi.com/languages}
-      categoriesURL: ${RAPIDAPI_CATEGORIES_INFO_URL:https://news67.p.rapidapi.com/v2/categories-info}
-      countriesURL: ${RAPIDAPI_COUNTRIES_INFO_URL:https://news67.p.rapidapi.com/countries}
+      languageURL: ${RAPID_API_LANGUAGE_INFO_URL}
+      categoriesURL: ${RAPID_API_CATEGORIES_INFO_URL}
+      countriesURL: ${RAPID_API_COUNTRIES_INFO_URL}
     content:
-      newsFeedURL: ${RAPIDAPI_NEWS_FEED_CONTENT_URL:https://news67.p.rapidapi.com/v2/feed}
-      worldTrendingURL: ${RAPIDAPI_WORLD_TRENDING_CONTENT_URL:https://news67.p.rapidapi.com/v2/trending}
-      topicSearchURL: ${RAPIDAPI_TOPIC_SEARCH_URL:https://news67.p.rapidapi.com/v2/topic-search}
-      countryNewsURL: ${RAPIDAPI_COUNTRY_NEWS_CONTENT_URL:https://news67.p.rapidapi.com/v2/country-news}
-      cryptoNewsURL: ${RAPIDAPI_CRYPTO_NEWS_CONTENT_URL:https://news67.p.rapidapi.com/v2/crypto}
+      newsFeedURL: ${RAPID_API_NEWS_FEED_CONTENT_URL}
+      worldTrendingURL: ${RAPID_API_WORLD_TRENDING_CONTENT_URL}
+      topicSearchURL: ${RAPID_API_TOPIC_SEARCH_URL}
+      countryNewsURL: ${RAPID_API_COUNTRY_NEWS_CONTENT_URL}
+      cryptoNewsURL: ${RAPID_API_CRYPTO_NEWS_CONTENT_URL}
+}
