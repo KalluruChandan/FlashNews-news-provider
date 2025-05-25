@@ -21,4 +21,10 @@ rapid-api:
       topicSearchURL: ${RAPID_API_TOPIC_SEARCH_URL}
       countryNewsURL: ${RAPID_API_COUNTRY_NEWS_CONTENT_URL}
       cryptoNewsURL: ${RAPID_API_CRYPTO_NEWS_CONTENT_URL}
-}
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /api-docs
