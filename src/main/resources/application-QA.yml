@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: news-provider
+
+server:
+  port: ${PORT_NO:8080}
+  servlet:
+    context-path: /flash-news/news-provider
+
+rapid-api:
+  hostname: ${RAPID_API_HOST_NAME}
+  apikey: ${RAPID_API_API_KEY}
+  url:
+    info:
+      languageURL: ${RAPID_API_LANGUAGE_INFO_URL}
+      categoriesURL: ${RAPID_API_CATEGORIES_INFO_URL}
+      countriesURL: ${RAPID_API_COUNTRIES_INFO_URL}
+    content:
+      newsFeedURL: ${RAPID_API_NEWS_FEED_CONTENT_URL}
+      worldTrendingURL: ${RAPID_API_WORLD_TRENDING_CONTENT_URL}
+      topicSearchURL: ${RAPID_API_TOPIC_SEARCH_URL}
+      countryNewsURL: ${RAPID_API_COUNTRY_NEWS_CONTENT_URL}
+      cryptoNewsURL: ${RAPID_API_CRYPTO_NEWS_CONTENT_URL}
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger
+  api-docs:
+    path: /api-docs
