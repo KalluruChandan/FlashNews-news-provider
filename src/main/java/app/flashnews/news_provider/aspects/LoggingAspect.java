@@ -27,12 +27,12 @@ public class LoggingAspect {
         String methodName = methodSignature.getName();
         Object[] methodArgs = joinPoint.getArgs();
 
-        log.info("→ Entering {}.{}() with arguments: {}", className, methodName, Arrays.toString(methodArgs));
+        log.info("→ Entering {}.{}() ", className, methodName);
 
         Object result;
         try {
             result = joinPoint.proceed(); // Execute the actual method
-            log.info("← Exiting {}.{}() with result: {}", className, methodName, result);
+            log.info("← Exiting {}.{}() ", className, methodName);
             return result;
         } catch (Throwable throwable) {
             log.error("✖ Exception in {}.{}() with cause: {}", className, methodName, throwable.getMessage());

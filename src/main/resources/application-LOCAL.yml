@@ -28,3 +28,7 @@ springdoc:
     path: /swagger
   api-docs:
     path: /api-docs
+
+api:
+  access:
+    key: ${SECURED_ACCESS_KEY:super-secure-internal-key}
