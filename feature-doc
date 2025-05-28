@@ -49,3 +49,9 @@
         Implement customized logging patterns per profiles and implement tracing
 
 
+*** Feature - 5
+    Story
+        Gateway changes
+            apis are accessed only through gateway or else u should have secret key to access in header
+
+
