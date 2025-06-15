@@ -1,0 +1,57 @@
+*** Feature - 1 (feature-1) (in qa)
+
+    Story
+    - create an api that fetches the language info for news articles from external api(from RapidAPI)
+
+    task-1
+        - required dependencies added
+            web
+            lombok
+            actuator
+        - 'dev' profile added
+        - rest template configured
+        - logic to fetch language info implemented
+
+    task-2
+        -implemented a working api for story
+            exceptions handled
+            resttemplate config updated to accept any response as string
+
+
+
+*** Feature - 2 (feature-2)
+
+    Story
+    develop apis for
+        - categories info
+        - countries info
+
+*** Feature - 3 (features)branch
+
+    Story
+    - Create apis for fetching the content form the external api
+
+    task 1
+        logic for news feed api implemented
+
+    task 2
+            logic for country news api implemented
+            logic for world trending news api implemented
+            logic for Crypto news api implemented
+            logic for topic search api implemented
+
+    task 3
+        swagger documentation
+
+
+*** Feature - 4
+    Story
+        Implement customized logging patterns per profiles and implement tracing
+
+
+*** Feature - 5
+    Story
+        Gateway changes
+            apis are accessed only through gateway or else u should have secret key to access in header
+
+
